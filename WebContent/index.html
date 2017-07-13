@@ -3,61 +3,76 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-           <style>
-.jumbotron { 
-    background-color: #f4511e; /* Orange */
-    color: #ffffff;
+<style>
+.jumbotron {
+	background-color: #f4511e; /* Orange */
+	color: #ffffff;
 }
+
 .navbar {
-      margin-bottom: 0;
-      background-color: #f4511e;
-      z-index: 9999;
-      border: 0;
-      font-size: 12px !important;
-      line-height: 1.42857143 !important;
-      letter-spacing: 4px;
-      border-radius: 0;
-  }
+	margin-bottom: 0;
+	background-color: #f4511e;
+	z-index: 9999;
+	border: 0;
+	font-size: 12px !important;
+	line-height: 1.42857143 !important;
+	letter-spacing: 4px;
+	border-radius: 0;
+}
 </style>
 </head>
-<body ng-app='app'>
-<header>
-            
-  <div class="container">
-<body>
-  <div class="jumbotron text-center">
-    <h1>Project2</h1> 
-    <p>social network get in touch</p> 
-  </div>
-</body>
-                </div>
-<div class="collapse navbar-collapse" id="collapse-example">
-  <ul class="nav navbar-nav ">
-  <a href="#/home">Home</a><br>
-<li><a href="#/aboutus">AboutUs</a></li>
-<li><a href="#/register">Sign up</a></li>
-<li><a href="#/login">Login</a></li>
-<li><a href="getalljobs">jobs</a></li>
-</ul>
-</div>
-</div>
-</nav>
-</header>
-<div ng-view></div>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<body ng-app="app">
+	<header>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-<script type="text/javascript"
-src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
-<script type="text/javascript"
-src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<div class="container">
+			<body>
+				<div class="jumbotron text-center">
+					<h1>Project2</h1>
+					<p>social network get in touch</p>
+				</div>
+			</body>
+		</div>
+		<div class="collapse navbar-collapse" id="collapse-example">
+			<ul class="nav navbar-nav ">
+				<a href="#/home">Home</a>
+				<br>
+				<li><a href="#/aboutus">AboutUs</a></li>
+				<li><a href="#/register" ng-hide="currentUser.firstname">Sign up</a></li>
+				<li><a href="#/login" ng-hide="currentUser.firstname">Login</a></li>
+				<li><a href="#/saveAllJob"  ng-show="currentUser.role=='admin'">PostJob</a>
+				<li><a href="#/getAlljobs"  ng-show="currentUser.firstname">GetAllJobs</a></li>
+				 <li><a href=""   ng-show="currentUser.firstname">Welcome {{currentUser.firstname}} &nbsp; {{currentUser.lastname}}</a></li>
+ <li><a href="" ng-click="logout()" ng-show="currentUser.firstname">logout</a></li>
+			</ul>
+		</div>
+		</div>
+		</nav>
+	</header>
+	<div ng-view></div>
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
+	<script type="text/javascript"
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		rel="stylesheet">
 
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/controller.js"></script>
-<script type="text/javascript" src="js/UserService.js"></script>
+	<link rel="stylesheet"
+		href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
+	<script type="text/javascript" src="js/UserService.js"></script>
+	<script type="text/javascript" src="js/jobController.js"></script>
+	<script type="text/javascript" src="js/JobService.js"></script>
 </body>
 </html>

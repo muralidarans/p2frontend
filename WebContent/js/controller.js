@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller('UserController',function(UserService,$rootscope,$scope,$location){
+app.controller('UserController',function(UserService,$rootScope,$scope,$location,$cookieStore){
 	$scope.register=function(){
 		alert("input " + angular.toJson($scope.user));
 		UserService.registerUser($scope.user).then(function(response){
@@ -15,7 +15,7 @@ app.controller('UserController',function(UserService,$rootscope,$scope,$location
 	}
 	$scope.login=function(){
 		UserService.login($scope.user).then(function(response){
-			$rootscope.currentUser=response.data
+			$rootScope.currentUser=response.data
 			$cookieStore.put("currentUser",response.data)
 			$location.path('/home')
 		},function(response){
