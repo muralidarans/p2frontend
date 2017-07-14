@@ -6,7 +6,7 @@ app.factory('JobService',function($http){
 	jobService.savejob=function(job){
 		return $http.post("http://localhost:9090/backend/saveAllJob",job)
 	}
-	jobService.getAllJob=function(){
+	jobService.getAllJobs=function(){
 		return $http.get("http://localhost:9090/backend/getAllJobs")
 	}
 	return jobService;

@@ -3,6 +3,7 @@
  */
 app.controller('jobController',function($scope,$location,JobService){
 
+	function getAllJobs(){
 	$scope.jobs=JobService.getAllJobs().then(function(response){
 		$scope.jobs=response.data;
 	},function(response){
@@ -10,6 +11,7 @@ app.controller('jobController',function($scope,$location,JobService){
 		$location.path('/login')
 	
 	})
+	}
 	
 	$scope.saveJob=function(){
 	JobService.savejob($scope.job).then(function(response){
@@ -22,4 +24,9 @@ app.controller('jobController',function($scope,$location,JobService){
 			$location.path('/saveAllJob')
 	})
 	}
+	$scope.getJobDetail=function(job){
+		$scope.showdetails=true;
+		$scope.job=job;
+	}
+	getAllJobs();
 })

@@ -19,7 +19,7 @@ controller:'UserController'
 	controller:'jobController'
 })
 .when('/getAlljobs',{
-	templateUrl:'views/jobTitles',
+	templateUrl:'views/jobTitles.html',
 		controller:'jobController'
 })
 .otherwise({
@@ -33,12 +33,16 @@ app.run(function($rootScope,$location,$cookieStore,UserService){
 		$rootScope.currentUser=$cookieStore.get("currentUser");
 	}
 	$rootScope.logout=function(){
-		
+		UserService.logout().then(function(response){
 			$rootScope.message="loggedout successfuly"
 			delete $rootScope.currentUser;
 			$cookieStore.remove("currentUser")
 			$location.path('/login')
-	
+		},function(response){
+			console.log(response.status)
+			$rootScope.message=response.data.message
+			$location.path('/login')
+		})
 		}
 	});
 	
