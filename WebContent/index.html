@@ -41,7 +41,25 @@
 				<li><a href="#/login" ng-hide="currentUser.firstname">Login</a></li>
 				<li><a href="#/saveAllJob"  ng-show="currentUser.role=='admin'">PostJob</a>
 				<li><a href="#/getAlljobs"  ng-show="currentUser.firstname">GetAllJobs</a></li>
-				 <li><a href=""   ng-show="currentUser.firstname">Welcome {{currentUser.firstname}} &nbsp; {{currentUser.lastname}}</a></li>
+				<li><a href=""   ng-show="currentUser.firstname">Welcome {{currentUser.firstname}} &nbsp; {{currentUser.lastname}}</a></li>
+				<li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> Blog <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+						
+				<li><a href="#/saveblogpost" ng-show="currentUser.firstname">Postblog</a></li>
+				<li><a href="#/getallblogs" ng-show="currentUser.firstname">Get Blog Post</a></li>
+				</ul></li>
+				 <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> Friend <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+				
+				<li><a href="#/suggesteduserslist" ng-show="currentUser.firstname">suggested friends</a></li>
+				<li><a href="#/pendingRequests" ng-show="currentUser.firstname">PendingRequests</a></li>
+				<li><a href="#/listOfFriends" ng-show="currentUser.firstname">FriendsList</a><li>
+ 				</li></ul>
+ 				<li><a href="#/chat" ng-show="currentUser.firstname">Chat</a><li>
  <li><a href="" ng-click="logout()" ng-show="currentUser.firstname">logout</a></li>
 			</ul>
 		</div>
@@ -50,12 +68,15 @@
 	</header>
 	<div ng-view></div>
 	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		src="js/angular/angular.min.js"></script>
 
 	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+		src="js/angular/angular-route.js"></script>
 	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+		src="js/angular/angular-cookies.js"></script>
+	
+	<!-- Bootstrap -->
+	 
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
 	<script type="text/javascript"
@@ -68,11 +89,19 @@
 		href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
 	<link rel="stylesheet"
 		href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
-
+ 	
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controller.js"></script>
 	<script type="text/javascript" src="js/UserService.js"></script>
 	<script type="text/javascript" src="js/jobController.js"></script>
 	<script type="text/javascript" src="js/JobService.js"></script>
+	<script type="text/javascript" src="js/FriendController.js"></script>
+	<script type="text/javascript" src="js/FriendService.js"></script>
+	<script type="text/javascript" src="js/BlogPostController.js"></script>
+	<script type="text/javascript" src="js/BlogPostService.js"></script>
+	<script src="js/sockjs/sockjs.js"></script>
+    <script src="js/stomp/dist/stomp.js"></script>
+	<script type="text/javascript" src="js/ChatController.js"></script>
+	<script type="text/javascript" src="js/ChatService.js"></script>
 </body>
 </html>

@@ -22,6 +22,38 @@ controller:'UserController'
 	templateUrl:'views/jobTitles.html',
 		controller:'jobController'
 })
+.when('/saveblogpost',{
+	templateUrl:'views/blogpostform.html',
+		controller:'BlogPostController'
+})
+.when('/getallblogs',{
+	templateUrl:'views/bloglist.html',
+		controller:'BlogPostController'
+})
+.when('/getBlogForApproval/:id',{
+	templateUrl:'views/approvalform.html',
+		controller:'BlogDetailController'
+})
+.when('/getBlogDetail/:id',{
+	templateUrl:'views/blogdetail.html',
+		controller:'BlogDetailController'
+})
+.when('/suggesteduserslist',{
+templateUrl:'views/suggestedusers.html',
+controller:'FriendController'
+})
+.when('/pendingRequests',{
+templateUrl:'views/pendingrequest.html',
+controller:'FriendController'
+})
+.when('/listOfFriends',{
+templateUrl:'views/listoffriends.html',
+controller:'FriendController'
+})
+.when('/chat',{
+		templateUrl:'views/chat.html',
+		controller:'ChatCtrl'
+	})
 .otherwise({
 templateUrl:'views/home.html',
 controller:'UserController'
