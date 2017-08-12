@@ -16,13 +16,13 @@ blogPostService.blogsWaitingForApproval=function(){
 	return $http.get("http://localhost:9090/backend/listofblogs/0")
 }
 blogPostService.getBlogPost=function(id){
-	return $http.get("http://localhost:9090/backend/getblogpost/"+id)
+	return $http.get("http://localhost:9090/backend/getBlogPost/"+id)
 }
 blogPostService.updateBlogPost=function(blogpost){
 	return $http.put("http://localhost:9090/backend/updateblogpost/",blogpost)
 }
 blogPostService.addComment=function(blogComment){
-	return $http.get("http://localhost:9090/backend/addblogcomment/",blogComment)
+	return $http.post("http://localhost:9090/backend/addblogcomment/",blogComment)
 }
 blogPostService.getBlogComments=function(blogId){
 	return $http.get("http://localhost:9090/backend/getblogcomments/"+blogId);

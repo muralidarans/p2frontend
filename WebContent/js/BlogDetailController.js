@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller('BlogDetailController',function($scope,BlogPostService,$routeParams){
+app.controller('BlogDetailController',function($scope,$location,BlogPostService,$routeParams){
 	var id=$routeParams.id
 $scope.showComments=false
 $scope.blogPost=BlogPostService.getBlogPost(id).then(function(response){
@@ -14,12 +14,11 @@ $scope.updateApproval=function(){
 			$location.path('/getallblogs')
 		},function(response){
 			console.log(response.status);
-			$location.path('/getBlogForApproval/'+id)
 		})
 	}
 	$scope.addComment=function(){
-		$scope.blogComment.blogPost=$scope.blogPost
-		BlogpostService.addComment($scope.blogComment).then(function(response){
+		$scope.blogComment.blogpost=$scope.blogPost
+		BlogPostService.addComment($scope.blogComment).then(function(response){
 			alert('Comment added successfuly')
 			$scope.blogComment.body=''
 				console.log(response.status)
@@ -29,7 +28,7 @@ $scope.updateApproval=function(){
 	}
 	$scope.getBlogComments=function(blogId){
 		$scope.showComments=true;
-		BlogPostService.getBlogComment(blogId).then(function(response){
+		BlogPostService.getBlogComments(blogId).then(function(response){
 			$scope.blogComments=response.data;
 			console.log(response.data)
 			console.log(response.status);

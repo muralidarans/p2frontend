@@ -14,8 +14,8 @@ list of blogs waiting for approval
 list of blog posts
 <table class="table">
 <tr><th>recent posts</th></tr>
-<tr ng-repeat="blogPost in blogsApproved">
-<td><a href="#getBlogForApproval/{{blogPost.id}}">{{blogPost.title}}</a></td>
+<tr ng-repeat="blogPost in blogsApproved | orderBy:'time':true">
+<td><a href="#getBlogDetail/{{blogPost.id}}">{{blogPost.title}}</a></td>
 <td>Created By:{{blogPost.createdBy.username}}</td>
 <td>Created On:{{blogPost.postedOn | date:'MM/dd/yyyy HH.mm'}}</td>"
 </tr>
